@@ -6,7 +6,7 @@ URL = 'https://www.cbr-xml-daily.ru/daily_json.js'
 
 
 class Command(BaseCommand):
-    """Команда для синхронизации данных."""
+    """Команда для моментальной синхронизации данных."""
 
     help = 'Sync rates data command.'
 

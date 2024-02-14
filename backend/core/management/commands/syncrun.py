@@ -7,10 +7,14 @@ User = get_user_model()
 
 
 class Command(BaseCommand):
-    """Команда для тестов и отладки."""
+    """Команда для запуска синхронизации по CRON."""
 
-    help = 'Test command.'
+    help = 'Sync data CRON.'
+
+    def add_arguments(self, parser):
+        parser.add_argument("cron", nargs="+", type=str)
 
     def handle(self, *args, **options):
-        schedule_task()
-    print('Синхронизация курсов активирована')
+        cron = options['cron'][0]
+        schedule_task(cron)
+        print(f'Синхронизация курсов активирована с расписанием "{cron}" ')

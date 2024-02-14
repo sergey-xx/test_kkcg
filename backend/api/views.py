@@ -4,8 +4,6 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from rates.models import Rate
 from .serializers import RateSerializer
-from .filters import RateFilter
-
 
 class RateViewSet(mixins.ListModelMixin,
                   viewsets.GenericViewSet):
@@ -15,6 +13,10 @@ class RateViewSet(mixins.ListModelMixin,
     permission_classes = [AllowAny, ]
     pagination_class = None
     filter_backends = (DjangoFilterBackend,)
-    filterset_class = RateFilter
     filterset_fields = ('name',)
-    filterset_fields = ('char_code', 'date')
+    filterset_fields = ('charcode', 'date')
+
+    def finalize_response(self, request, response, *args, **kwargs):
+        if response.data:
+            response.data = response.data[0]
+        return super().finalize_response(request, response, *args, **kwargs)

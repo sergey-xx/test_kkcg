@@ -6,9 +6,9 @@ class RateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Rate
-        fields = ('char_code',
+        fields = ('charcode',
                   'date',
                   'rate', )
-        read_only_fields = ('char_code',
+        read_only_fields = ('charcode',
                             'date',
                             'rate', )

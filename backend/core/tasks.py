@@ -12,13 +12,13 @@ def daily_task():
     sync_rates()
 
 
-def schedule_task():
+def schedule_task(cron='1 0 * * *'):
     schedule, _ = CrontabSchedule.objects.get_or_create(
-        minute='*',
-        hour='*',
-        day_of_week='*',
-        day_of_month='*',
-        month_of_year='*', )
+        minute=cron.split()[0],
+        hour=cron.split()[1],
+        day_of_week=cron.split()[2],
+        day_of_month=cron.split()[3],
+        month_of_year=cron.split()[4], )
     PeriodicTask.objects.create(crontab=schedule,
                                 name='send_emails',
                                 task='core.tasks.daily_task')

@@ -16,7 +16,7 @@ def sync_rates():
             Rate.objects.create(
                     cur_id=item[1]['ID'],
                     num_code=item[1]['NumCode'],
-                    char_code=item[1]['CharCode'],
+                    charcode=item[1]['CharCode'],
                     name=item[1]['Name'],
                     nominal=item[1]['Nominal'],
                     rate=item[1]['Value'],
