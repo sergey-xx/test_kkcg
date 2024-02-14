@@ -1,0 +1,52 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /rate/:
+    get:
+      operationId: listRates
+      description: ''
+      parameters:
+      - name: charcode
+        required: false
+        in: query
+        description: charcode
+        schema:
+          type: string
+      - name: date
+        required: false
+        in: query
+        description: date
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rate'
+          description: ''
+      tags:
+      - rate
+components:
+  schemas:
+    Rate:
+      type: object
+      properties:
+        charcode:
+          type: string
+          readOnly: true
+        date:
+          type: string
+          format: date
+          readOnly: true
+        rate:
+          type: string
+          format: decimal
+          multipleOf: 0.0001
+          maximum: 1000
+          minimum: -1000
+          readOnly: true

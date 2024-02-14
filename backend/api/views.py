@@ -5,6 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rates.models import Rate
 from .serializers import RateSerializer
 
+
 class RateViewSet(mixins.ListModelMixin,
                   viewsets.GenericViewSet):
     queryset = Rate.objects.all()
