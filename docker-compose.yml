@@ -35,7 +35,7 @@ services:
   worker:
     build: ./backend/
     env_file: .env
-    command: celery -A nkdm worker --loglevel info
+    command: celery -A currency worker --loglevel info
     links:
       - redis
     depends_on:
@@ -43,7 +43,7 @@ services:
   beat:
     build: ./backend/
     env_file: .env
-    command: celery -A nkdm  beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    command: celery -A currency  beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
     links:
       - redis
     depends_on:
