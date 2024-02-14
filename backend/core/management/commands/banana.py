@@ -1,5 +1,7 @@
-from django.core.management.base import BaseCommand
 import requests
+from datetime import datetime
+
+from django.core.management.base import BaseCommand
 
 from rates.models import Rate
 
@@ -13,16 +15,16 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         response = requests.get(URL)
         items = response.json().get('Valute')
+        date = datetime.strptime(response.json().get(
+            'Timestamp')[:-6], '%Y-%m-%dT%H:%M:%S').date()
         for item in items.items():
-            try:
-                rate = Rate.objects.get_or_create(
+            Rate.objects.create(
                     cur_id=item[1]['ID'],
                     num_code=item[1]['NumCode'],
                     char_code=item[1]['CharCode'],
                     name=item[1]['Name'],
                     nominal=item[1]['Nominal'],
-                    value=item[1]['Value'],
-                    previous=item[1]['Previous'], )
-                rate[0].save()
-            except KeyError('Ошибка словаря JSON'):
-                continue
+                    rate=item[1]['Value'],
+                    previous=item[1]['Previous'],
+                    date=date, )
+        print('БД синхронизирована!')
