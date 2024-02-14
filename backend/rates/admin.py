@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Rate
+
+
+@admin.register(Rate)
+class RefCodesAdmin(admin.ModelAdmin):
+    pass
