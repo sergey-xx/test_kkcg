@@ -7,7 +7,7 @@ from .serializers import RateSerializer
 from .filters import RateFilter
 
 
-class PostViewSet(mixins.ListModelMixin,
+class RateViewSet(mixins.ListModelMixin,
                   viewsets.GenericViewSet):
     queryset = Rate.objects.all()
     serializer_class = RateSerializer
