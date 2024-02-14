@@ -7,6 +7,7 @@ from rates.models import Rate
 
 URL = 'https://www.cbr-xml-daily.ru/daily_json.js'
 
+
 class Command(BaseCommand):
     """Команда для синхронизации данных."""
 

@@ -4,6 +4,7 @@ from core.tasks import daily_task
 
 URL = 'https://www.cbr-xml-daily.ru/daily_json.js'
 
+
 class Command(BaseCommand):
     """Команда для синхронизации данных."""
 

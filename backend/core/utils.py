@@ -1,8 +1,6 @@
 import requests
 from datetime import datetime
 
-from django.core.management.base import BaseCommand
-
 from rates.models import Rate
 
 URL = 'https://www.cbr-xml-daily.ru/daily_json.js'

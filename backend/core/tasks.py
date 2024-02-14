@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
-from django_celery_beat.models import PeriodicTask, IntervalSchedule, CrontabSchedule
+from django_celery_beat.models import PeriodicTask, CrontabSchedule
 from celery import shared_task
-from django.conf import settings
 
 from core.utils import sync_rates
 
