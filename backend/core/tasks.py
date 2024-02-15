@@ -20,5 +20,5 @@ def schedule_task(cron='1 0 * * *'):
         day_of_month=cron.split()[3],
         month_of_year=cron.split()[4], )
     PeriodicTask.objects.create(crontab=schedule,
-                                name='send_emails',
+                                name='sync_data',
                                 task='core.tasks.daily_task')

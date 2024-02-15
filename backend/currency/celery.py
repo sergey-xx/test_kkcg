@@ -3,9 +3,9 @@ from celery import Celery
 from django.conf import settings
 import time
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "currency.settings")
-app = Celery("currency")
-app.config_from_object("django.conf:settings", namespace="CELERY")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'currency.settings')
+app = Celery('currency')
+app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.broker_url = settings.CELERY_BROKER_URL
 app.autodiscover_tasks()
 

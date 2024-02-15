@@ -48,5 +48,6 @@ services:
       - redis
     depends_on:
       - worker
+      - db
     volumes:
       - data_volume:/data/

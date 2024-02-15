@@ -11,7 +11,7 @@ class Rate(models.Model):
                                decimal_places=4,
                                null=False,
                                blank=False)
-    date = models.DateField("Date",
+    date = models.DateField('Date',
                             auto_now=False,
                             auto_now_add=False,
                             null=False,
