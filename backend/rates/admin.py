@@ -5,4 +5,5 @@ from .models import Rate
 
 @admin.register(Rate)
 class RefCodesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('pk', 'charcode', 'rate', 'date')
+    list_filter = ["charcode", "date"]

@@ -14,13 +14,8 @@ def sync_rates():
     for item in items.items():
         try:
             Rate.objects.create(
-                    cur_id=item[1]['ID'],
-                    num_code=item[1]['NumCode'],
-                    charcode=item[1]['CharCode'],
-                    name=item[1]['Name'],
-                    nominal=item[1]['Nominal'],
-                    rate=item[1]['Value'],
-                    previous=item[1]['Previous'],
+                    charcode=item[1].get('CharCode'),
+                    rate=item[1].get('Value'),
                     date=date, )
         except KeyError:
             continue
