@@ -41,6 +41,8 @@ docs\schema.yaml
 ```
 docker compose up
 ```
+API будет доступен по адресу:
+http://localhost:8012/rate/?charcode=AUD&date=2024-01-01
 
 При первом запуске нужно выполнить миграции и перезапустить compose.
 ```
